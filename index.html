@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noarchive">
   <title>Beyond the Visible: Disocclusion-Aware Editing via Proxy Dynamic Graphs</title>
-    <link rel="icon" href="assets/icon.jpg">
+    <link rel="icon" type="image/png" href="assets/icon.png">
     <link rel="stylesheet" href="style.css">
-<style>.authors, .authors a, .authors sup { color:#fff; }</style>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -15,365 +15,840 @@
 <body>
   <div class="page-container">
     
-    <!-- Title Section -->
+    <!-- Paper Header -->
     <header class="paper-header">
-      <h1 class="paper-title">Beyond the Visible: Disocclusion-Aware Editing via Proxy Dynamic Graphs</h1>
-      
-      <!-- Authors -->
+      <div class="venue-line">Pacific Graphics 2026 · Computer Graphics Forum</div>
+      <h1 class="paper-title">A Study of the Design Space of<br> Motion and Disocclusion Control in Video Generation</span></h1>
+
       <div class="authors">
-        <span class="author"><a href="https://anranqi.github.io/">Anran Qi</a><sup>1</sup></span>
-        <span class="author"><a href="https://enigma-li.github.io/">Changjian Li</a><sup>2</sup></span>
-        <span class="author"><a href="https://www-sop.inria.fr/members/Adrien.Bousseau/">Adrien Bousseau</a><sup>1</sup></span>
-        <span class="author"><a href="http://www0.cs.ucl.ac.uk/staff/n.mitra/index.html">Niloy J.Mitra</a><sup>3, 4</sup></span>
+        <a href="https://anranqi.github.io/">Anran Qi<sup>1</sup></a>
+        <a href="https://enigma-li.github.io/">Changjian Li<sup>2</sup></a>
+        <a href="https://www-sop.inria.fr/members/Adrien.Bousseau/">Adrien Bousseau<sup>1</sup></a>
+        <a href="http://www0.cs.ucl.ac.uk/staff/n.mitra/index.html">Niloy J. Mitra<sup>3,4</sup></a>
       </div>
 
-    <!-- Institutions -->
-    <div class="affiliations">
-      <span class="affiliation"><sup>1</sup>Inria - Université Côte d'Azur</span>
-      <span class="affiliation"><sup>2</sup>University of Edinburgh</span>
-        <span class="affiliation"><sup>3</sup>Adobe Research</span>
-        <span class="affiliation"><sup>4</sup>University College London</span>
-    </div>
-
-
-      <!-- Links -->
-      <div class="paper-links">
-      <!-- Paper (PDF) -->
-      <a href="./assets/paper_compress.pdf" class="paper-btn"  target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-        </svg>
-        Paper (PDF)
-      </a>
-
-      <!-- arXiv -->
-      <a href="https://arxiv.org/abs/2512.13392" class="paper-btn" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <line x1="10" y1="14" x2="21" y2="3"></line>
-        </svg>
-        arXiv
-      </a>
-        <a href="https://github.com/AnranQi/Rags2riches" class="paper-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-          </svg>
-          Code (Coming Soon)
-        </a>
-        <a href="./assets/sup_compress.pdf" class="paper-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="9" y1="3" x2="9" y2="21"></line>
-          </svg>
-          Supplementary
-        </a>
+      <div class="affiliations">
+        <span><sup>1</sup>Inria · Université Côte d'Azur</span>
+        <span><sup>2</sup>University of Edinburgh</span>
+        <span><sup>3</sup>Adobe Research</span>
+        <span><sup>4</sup>University College London</span>
       </div>
+
+      <nav class="paper-links" aria-label="Paper resources">
+        <a href="./assets/paper_compress.pdf" class="paper-btn" target="_blank" rel="noopener">Paper</a>
+        <a href="https://arxiv.org/abs/2512.13392" class="paper-btn" target="_blank" rel="noopener">arXiv</a>
+        <a href="https://anranqi.github.io/VoronoiScissors/" class="paper-btn" target="_blank" rel="noopener">Code <span class="muted">(Soon)</span></a>
+        <a href="./assets/sup_compress.pdf" class="paper-btn" target="_blank" rel="noopener">Supplementary</a>
+      </nav>
     </header>
 
-    <!-- Teaser Video -->
-    <section class="teaser-section">
-      <div class="teaser-video-container">
-        <video class="teaser-video" autoplay loop muted playsinline controls>
-          <source src="assets/teaser.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </section>
+ <!-- Teaser -->
+<section class="teaser-section">
 
-    <!-- Abstract -->
-    <section class="abstract-section">
-    <h2>Abstract</h2>
-    <p class="abstract-text" style="line-height:1.28;margin:0;">
-        We address image-to-video generation with explicit user control over the <strong>final frame’s disoccluded regions</strong>. Current image-to-video pipelines produce plausible motion003
-        but struggle to generate predictable, articulated motions while enforcing user-specified content in newly revealed areas. Our key idea is to <strong>separate motion specification from
-        appearance synthesis</strong>: we introduce a <strong>lightweight, user-editable Proxy Dynamic Graph (PDG)</strong> that deterministically yet approximately drives part motion, while a frozen009
-        diffusion prior is used to synthesize plausible appearance that follows that motion. In our <strong>training-free</strong> pipeline, the
-        user loosely annotates and reposes a PDG, from which we compute a dense motion flow to leverage diffusion as a motion-guided shader. We then let the user edit appearance in the disoccluded areas of the image, and exploit
-        the visibility information encoded by the PDG to perform a latent-space composite that reconciles motion with user intent in these areas. This design yields controllable articulation and user control over disocclusions without finetuning. We demonstrate clear advantages against state-of-020
-        the-art alternatives towards images turned into short videos of <strong>articulated objects, furniture, vehicles, and deformables</strong>.
-        Our method mixes generative control, in the form of loose pose and structure, with predictable controls, in the form of appearance specification in the final frame in the disoccluded regions, unlocking a new image-to-video workflow.
+  <!-- Teaser Image -->
+  <div class="teaser-image-container">
+    <img
+      src="assets/teaser.png"
+      alt="Teaser overview"
+      class="teaser-image"
+    >
+  </div>
 
-
+  <!-- Description -->
+<div class="method-description" style="line-height:1.28;">
+    <p>
+      Every movement is a revelation. Like a Jack-in-the-Box slowly turning
+      its crank, anticipation builds around the hidden spaces inside the box
+      (a). Although object motion inherently creates disocclusions, motion
+      control (what moves and how) and disocclusion control (what appears in
+      the newly revealed region) remain largely unexplored as a unified design
+      space. Methods emphasizing disocclusion control may generate unrealistic
+      motion (b, video generated by CogVideoX-Interp. [Zhe25]), whereas methods
+      emphasizing motion control may generate unexpected disocclusion content
+      (c, video generated by DiffusionAsShader [GYL∗25]).
     </p>
-    </section>
+  </div>
 
-    <!-- Motivation -->
-    <section class="method-section">
-      <h2>Motivation</h2>
-      <div class="method-figure">
-        <img src="assets/motivation.png" alt="Motivation" class="method-img">
-      </div>
-      
-      <div class="method-description" style="line-height:1.28;margin:0;">
-        <p>
-        Motivation: forward vs. backward inconsistency in disocclusions. (a) Forward pass with DaS<a href="#ref1">[1]</a> exposes a large disoccluded region (white mask); (b) Backward pass from the
-        last frame produces a plausible but different reveal resulting in a (c) difference map highlights misalignments concentrated on newly visible areas (rear of the bus, background),
-        showing that <strong>forward/ backward visibility disagree</strong>. Hence, (d) Naive pixel copy–paste between forward/backward passes creates <strong>seams/ghosting (yellow circles)</strong> due to parallax, shading,
-        and occlusion-order mismatches. This motivates us to solve the disocclusion problem.
-        </p>
-      </div>
-      </section>
+    <!-- Teaser Video -->
+  <div class="teaser-video-container">
+    <video class="teaser-video" autoplay loop muted playsinline controls>
+      <source src="assets/teaser.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p class="teaser-video-caption">
+    From left to right: ground-truth video, method (b), and method (c).
+  </p>
+
+  <!-- Highlighted Message -->
+  <div class="teaser-highlight">
+    In this work, we present a systematic study of the unified design space of 
+    motion and disocclusion.
+  </div>
+
+
+  </div>
+
+</section>
+
+ 
+
+
 
       <!-- Method Overview -->
     <section class="method-section">
-      <h2>Method Overview</h2>
+      <div class="section-kicker">01 · Benchmark</div>
+      <h2>VideoReveal Benchmark</h2>
+
+      <p class="section-lead">
+        To systematically studying motion and disocclusion control in image-to-video generation, We introduce <strong>VideoReveal</strong>. A benchmark contains 32 modeled scenes and 5 captured scenes spanning rigid/deformable motion and static/dynamic disoccluded content. Each sample provides the rendered sequence, tracking guidance, disocclusion masks, and associated prompts.
+      </p>
+      
+<div class="teaser-video-container">
+    <video class="teaser-video" autoplay loop muted playsinline controls>
+      <source src="assets/dataset_example_compressed.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p class="teaser-video-caption">Modeled and captured examples from the VideoReveal benchmark.</p>
+  </div>
+
+      </section>
+
+
+
+
+ <section class="Evaluation">
+      <div class="section-kicker">02 · Design Space</div>
+      <h2>Evaluation Setup</h2>
+<p class="section-lead">
+  Starting from an input image, we organize representative image-to-video methods
+  in a 2×2 design space: motion is controlled by either text or tracking, while
+  newly revealed content is controlled by either text or a reference image.
+  We evaluate five representative methods across this space:
+  <font color="#ff6b9d"><strong>CogVideoX</strong></font>,
+  <font color="#48dbfb"><strong>CogVideoX-Interp.</strong></font>,
+  <font color="#ff6a6a"><strong>DiffusionAsShader</strong></font>,
+  <font color="#7c6aff"><strong>DaS-Interp.</strong></font>, and
+  <font color="#1dd1a1"><strong>Pixel-CP</strong></font>.
+</p>
+
+
+
       <div class="method-figure">
         <img src="assets/method.png" alt="Method Overview" class="method-img">
       </div>
 
+     
+
       <div class="method-description" style="line-height:1.28;margin:0;">
         <p>
-         From an input image, we build a Proxy Dynamic Graph (PDG) and obtain coarse part tracks (marked with red arrows)
-         and a disocclusion mask. <strong>Pass I</strong>, top: we run DaS (Diffusion-as-shader) to generate a motion-aware video driven by the PDG. The user
-         then edits the final frame to prescribe the desired reveal in disoccluded regions (top-right). <strong>Pass II</strong>, bottom: without any retraining, we
-         surgically replace the corresponding feature channels with the edited final-frame features and rerun DaS, yielding a video that preserves
-         PDG-driven motion while matching the user-specified reveal (bottom-right).
+            
         </p>
       </div>
 
       </section>
 
 
+<!-- =========================
+     SELECTED VIDEO RESULTS
+========================= -->
 
-    <!-- User-Specified Object Control (plays 81 frames @ 24 fps) -->
-    <section id="UserObjectControl" class="results-section">
-      <h2>Part Motion Editing</h2>
-      <p class="section-description" style="line-height:1.28;margin:0;">
-        Examples of PDG-based object part motion editing.  we first estimate the depth map, the camera parameters and the objects or object parts segments. This allows us to lift the depth map into a point cloud for
-        each part, which form the nodes of the PDG. Based on the relationships and motion parameters of each nodes,
-        we transform the 3D pointcloud across all frames to render a coarse, warped version of the intended object animation (Left, Rendered).
-        (Right, Ours) Our method generates a high-quality, dynamic video that accurately reflects the user’s intent.
-      </p>
-      <br>
-      <div class="video-grid-2col">
-        <!-- Header row: two header cells, one per column -->
-        <div class="video-col-headercell">
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="label">Rendered</span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="label">Ours</span>
-          <span class="spacer" aria-hidden="true"></span>
-        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
-        </div>
-        <div class="video-col-headercell">
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="label">Rendered</span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="label">Ours</span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
-        </div>
-        <!-- <div class="video-item">
-          <video src="UserObjectControl/monkeyjumpingonthebed_concatenated_fixed.mp4" autoplay loop muted playsinline controls></video>
-        </div> -->
-        <div class="video-item">
-            <video src="Part_Motion/toaster1.mp4" autoplay loop muted playsinline controls></video>
-        </div>
-        <div class="video-item">
-            <video src="Part_Motion/toaster2.mp4" autoplay loop muted playsinline controls></video>
-        </div>
-        <div class="video-item">
-          <video src="Part_Motion/art_lamp1.mp4" autoplay loop muted playsinline controls></video>
-        </div>
-        <div class="video-item">
-          <video src="Part_Motion/art_lamp2.mp4" autoplay loop muted playsinline controls></video>
-        </div>
+<section id="video-results">
+  <div class="section-kicker">03 · Video Results</div>
+  <style>
+    #video-results {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: transparent;
+    }
 
-      </div>
-    </section>
+    #video-results h2 {
+      font-size: 2rem;
+      margin: 0 0 12px;
+      text-align: center;
+    }
 
+    #video-results .results-description {
+      color: #666;
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
 
-    <!-- User-Specified Camera Control (plays 81 frames @ 16 fps) -->
-    <section id="UserCameraControl" class="results-section">
-      <h2>Disocclusion and Part Motion Editing</h2>
-      <p class="section-description" style="line-height:1.28;margin:0;">
-        Examples of PDG-based object part motion and disocclusion editing. The motion of the objects/parts inevitably reveals disoccluded regions, we reinstate control over these regions (Right, Ours).
-      </p>
-      <br>
-      <div class="video-grid-2col">
-                <div class="video-col-headercell">
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="label">Rendered + New Concept</span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="label">Ours</span>
-          <span class="spacer" aria-hidden="true"></span>
-        <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
-        </div>
-        <div class="video-col-headercell">
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="label">Rendered + New Concept</span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span class="label">Ours</span>
-          <span class="spacer" aria-hidden="true"></span>
-          <span style="display:block;height:calc(1em * 1.28 * 0.45)" aria-hidden="true"></span>
-        </div>
-        <div class="video-item">
-            <video src="Part_Motion_Disocclusion/laptop3.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Rendered | Ours</p>
-        </div>
-        <div class="video-item">
-          <video src="Part_Motion_Disocclusion/lantern.mp4" autoplay loop muted playsinline controls></video>
-          <p class="video-label">Rendered | Ours</p>
-        </div>
-        <div class="video-item">
-            <video src="Part_Motion_Disocclusion/dog.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Rendered | Ours</p>
-        </div>
-        <div class="video-item">
-            <video src="Part_Motion_Disocclusion/closet.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Rendered | Ours</p>
-        </div>
-        <div class="video-item">
-            <video src="Part_Motion_Disocclusion/gingerbread.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Rendered | Ours</p>
-        </div>
+    /* =========================
+       Scene groups
+    ========================= */
 
-        <div class="video-item">
-            <video src="Part_Motion_Disocclusion/box.mp4" autoplay loop muted playsinline controls></video>
-            <p class="video-label">Rendered | Ours</p>
-        </div>
+    #video-results .scene-group {
+      margin-bottom: 64px;
+    }
 
-      </div>
-    </section>
+    #video-results .scene-group-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      background: transparent;
+    }
 
-    <!-- Qualitative Comparison - Part Motion Control (plays 81 frames @ 24 fps)  -->
-    <section class="comparison-section">
-      <h2>Qualitative Comparison: Part Motion Editing</h2>
-      <p class="section-description" style="line-height:1.28;margin:0;">
-    Comparison of our method with the state-of-the-art motion control method Veo3.1<a href="#ref1">[2]</a>, DragAnything<a href="#ref2">[3]</a> and Puppet Master<a href="#ref2">[4]</a> on user-specified object part editing tasks.
-      </p>
-      <!-- Videos - Hamburger, Snooker, Find Other -->
-      <div class="comparison-grid">
-        <div class="video-col-headercell-small">
-          <span class="label">Rendered</span>
-          <span class="label">Ours</span>
-          <span class="label">Veo3.1</span>
-          <span class="label">DragAnything</span>
-          <span class="label">Puppet Master</span>
-        </div>
+    #video-results .result-case {
+      margin-bottom: 50px;
+    }
+
+    #video-results .result-case-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: transparent;
+    }
 
 
-        <div class="comparison-item">
-          <video src="Part_Motion_Comparison/motion_toaster_compare.mp4" autoplay loop muted playsinline controls></video>
-        </div>
-        <div class="comparison-item">
-          <video src="Part_Motion_Comparison/motion_lamp_compare.mp4" autoplay loop muted playsinline controls></video>
-        </div>
+    /* =========================
+       Video grid
+    ========================= */
 
-      </div>
-    </section>
+    #video-results .results-video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px 12px;
+    }
 
-    <!-- Qualitative Comparison - Camera Control (plays 81 frames @ 16 fps) -->
-    <section class="comparison-section">
-      <h2>Qualitative Comparison: Disocclusion and Part Motion Editing</h2>
-      <p class="section-description" style="line-height:1.28;margin:0;">
-        Comparison of our method on DDisocclusion and Part Motion Editing. Since no prior work addresses our novel motion- and disocclusion-aware video generation task, we created four baseline methods (see our paper for more detail).
-      </p>
+    #video-results .results-video-item {
+      min-width: 0;
+      background: transparent;
+    }
 
-      <div class="comparison-grid">
-        <div class="video-col-headercell-small-6">
-          <span class="label">Rendered + New Concept</span>
-          <span class="label">Ours</span>
-          <span class="label">DaS_Tnew</span>
-          <span class="label">pixel-cp</span>
-          <span class="label">pixel-cp++</span>
-          <span class="label">Veo3.1</span>
-        </div>
 
-        <div class="comparison-item">
-          <video src="Part_Motion_Disocclusion_Comparison/motion_disocclusion_hat_compare.mp4" autoplay loop muted playsinline controls></video>
-        </div>
-        <div class="comparison-item">
-          <video src="Part_Motion_Disocclusion_Comparison/motion_disocclusion_bus_compare.mp4" autoplay loop muted playsinline controls></video>
-        </div>
-      </div>
-    </section>
+    /* =========================
+       Method label
 
-    <!-- BibTeX -->
-    <section class="bibtex-section">
-      <h2>Citation</h2>
-      <pre class="bibtex"><code>
-      @misc{Qi2025beyondvisible,
-            title={Beyond the Visible: Disocclusion-Aware Editing via Proxy Dynamic Graphs},
-            author={Anran Qi, Changjian Li, Adrien Bousseau and Miloy J.Mitra},
-            year={2025},
-            eprint={2512.13392},
-            archivePrefix={arXiv},
-            primaryClass={cs.CV},
-            url={http://arxiv.org/abs/2512.13392},
+       IMPORTANT:
+       no background color here
+    ========================= */
+
+    #video-results .results-method-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #333;
+
+      margin: 0 0 7px 0;
+      padding: 0;
+
+      text-align: center;
+
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+
+
+    /* Tiny colored square ONLY */
+    #video-results .results-method-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 2px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+
+    /* =========================
+       Method colors
+    ========================= */
+
+    #video-results .method-color-gt {
+      background-color: #ff9f43 !important;
+    }
+
+    #video-results .method-color-tracking {
+      background-color: #8108c7 !important;
+    }
+
+    #video-results .method-color-disocclusion {
+      background-color: #6aff72 !important;
+    }
+
+    #video-results .method-color-cogvideox {
+      background-color: #ff6b9d !important;
+    }
+
+    #video-results .method-color-cogx-interp {
+      background-color: #48dbfb !important;
+    }
+
+    #video-results .method-color-das {
+      background-color: #ff6a6a !important;
+    }
+
+    #video-results .method-color-das-interp {
+      background-color: #7c6aff !important;
+    }
+
+    #video-results .method-color-pixelcp {
+      background-color: #1dd1a1 !important;
+    }
+
+
+    /* =========================
+       Video
+    ========================= */
+
+    #video-results .results-video-wrapper {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    #video-results .results-video-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+
+
+
+    /* =========================
+       Observations
+    ========================= */
+
+    #video-results .results-observations {
+      /* Change the observation colors here */
+      --observation-background: #f7edf0;
+      --observation-text: #444;
+      --observation-title: #9f2042;
+      --observation-border: #9f2042;
+
+      margin: 28px 0 0 0;
+      padding: 20px 24px 18px;
+      background: var(--observation-background);
+      color: var(--observation-text);
+      border-left: 4px solid var(--observation-border);
+      border-radius: 6px;
+    }
+
+    #video-results .results-observations-title {
+      margin: 0 0 10px 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--observation-title);
+    }
+
+    #video-results .results-observations ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    #video-results .results-observations li {
+      margin: 7px 0;
+      line-height: 1.55;
+      color: var(--observation-text);
+    }
+
+
+    /* =========================
+       Responsive
+    ========================= */
+
+    @media (max-width: 1000px) {
+      #video-results .results-video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-</code></pre>
-    </section>
+    }
+
+    @media (max-width: 600px) {
+      #video-results {
+        padding: 40px 16px;
+      }
+
+      #video-results .results-video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+
+ 
+
+  <h2>Video Results on Modeled and Captured Scenes.</h2>
+
+
+
+  <div id="selected-video-results"></div>
+
+
+  <script>
+    (() => {
+
+      /* =========================
+         SELECTED SCENES
+      ========================= */
+
+      const scenes = [
+
+        {
+          label: "Modeled Scenes",
+
+          observations: [
+            "Tracking-guided methods (DaS, DaS-Interp., and Pixel-CP) generally reproduce the prescribed object motion more accurately than text-only methods.",
+            "Image-conditioned methods better preserve the identity and appearance of newly revealed content, while text-based disocclusion control may generate semantically plausible but visually different objects.",
+            "Generative methods can reproduce secondary effects such as changing shadows and shading around disoccluded regions, whereas Pixel-CP may introduce copy-and-paste artifacts and miss these effects.",
+            "Deformable motion and dynamic disocclusion remain particularly challenging: newly revealed objects often fail to reproduce their intended subsequent motion."
+          ],
+
+          cases: [
+            {
+              name: "Rigid Static Car",
+              base:
+                "./modeled_scenes/rigid_static_car/motion1/disocclusion1"
+            },
+
+            {
+              name: "Deformable Moving Cloth",
+              base:
+                "./modeled_scenes/deformable_moving_cloth_pendulum/motion1/disocclusion1"
+            },
+
+            {
+              name: "Deformable Static Dinosaur",
+              base:
+                "./modeled_scenes/deformable_static_dinosaur/motion1/disocclusion1"
+            }
+
+            
+
+          ]
+        },
+
+
+        {
+          label: "Captured Scenes",
+
+          observations: [
+            "In captured scenes, tracking is estimated from sparse user annotations, so trajectory errors can lead to spatially incoherent motion, texture stretching, and local deformation artifacts.",
+            "Image-conditioned interpolation (CogX-Interp.) performs particularly well for simple motions when the target appearance is provided explicitly by the reference image.",
+            "Image-based disocclusion guidance remains important in practical settings, while the benefit of tracking-based motion control depends strongly on the accuracy of the estimated motion signal.",
+            "Dynamic disocclusion is still difficult: even when the prompt specifies motion for a newly revealed object, current methods may preserve its appearance but fail to animate it correctly."
+          ],
+
+          cases: [
+
+            {
+              name: "Tissue Box",
+              base:
+                "./capture/tissue_box"
+            },
+
+            {
+              name: "Box",
+              base:
+                "./capture/box"
+            }
+
+          ]
+        }
+
+      ];
+
+
+      /* =========================
+         METHODS
+      ========================= */
+
+      const methods = [
+
+        {
+          label: "GT",
+          color: "method-color-gt",
+          path: base =>
+            `${base}/gt.mp4`
+        },
+
+        {
+          label: "Tracking",
+          color: "method-color-tracking",
+          path: base =>
+            `${base}/tracking.mp4`
+        },
+
+        {
+          label: "Disocclusion",
+          color: "method-color-disocclusion",
+          path: base =>
+            `${base}/disocclusion_eval.mp4`
+        },
+
+        {
+          label: "CogVideoX",
+          color: "method-color-cogvideox",
+          path: base =>
+            `${base}/cogx/result.mp4`
+        },
+
+        {
+          label: "CogX-Interp.",
+          color: "method-color-cogx-interp",
+          path: base =>
+            `${base}/cogx_interpolation/result.mp4`
+        },
+
+        {
+          label: "DaS",
+          color: "method-color-das",
+          path: base =>
+            `${base}/das/result.mp4`
+        },
+
+        {
+          label: "DaS-Interp.",
+          color: "method-color-das-interp",
+          path: base =>
+            `${base}/ours_inbetween/result.mp4`
+        },
+
+        {
+          label: "Pixel-CP",
+          color: "method-color-pixelcp",
+          path: base =>
+            `${base}/pixel_cp/result.mp4`
+        }
+
+      ];
+
+
+      /* =========================
+         BUILD RESULTS
+      ========================= */
+
+      const root =
+        document.getElementById("selected-video-results");
+
+
+      scenes.forEach(scene => {
+
+        const group =
+          document.createElement("div");
+
+        group.className =
+          "scene-group";
+
+
+        /* Scene group title */
+        const groupTitle =
+          document.createElement("div");
+
+        groupTitle.className =
+          "scene-group-title";
+
+        groupTitle.textContent =
+          scene.label;
+
+        group.appendChild(groupTitle);
+
+
+        scene.cases.forEach(sceneCase => {
+
+          /* Case */
+          const caseElement =
+            document.createElement("div");
+
+          caseElement.className =
+            "result-case";
+
+
+          /* Case title */
+          const title =
+            document.createElement("div");
+
+          title.className =
+            "result-case-title";
+
+          title.textContent =
+            sceneCase.name;
+
+          caseElement.appendChild(title);
+
+
+          /* Video grid */
+          const grid =
+            document.createElement("div");
+
+          grid.className =
+            "results-video-grid";
+
+
+          methods.forEach(method => {
+
+            /* Individual video item */
+            const item =
+              document.createElement("div");
+
+            item.className =
+              "results-video-item";
+
+
+            /* -------------------------
+               Method name
+            ------------------------- */
+
+            const label =
+              document.createElement("div");
+
+            label.className =
+              "results-method-label";
+
+
+            /* Colored square */
+            const dot =
+              document.createElement("span");
+
+            dot.className =
+              `results-method-dot ${method.color}`;
+
+
+            /* Method text */
+            const labelText =
+              document.createElement("span");
+
+            labelText.textContent =
+              method.label;
+
+
+            label.appendChild(dot);
+            label.appendChild(labelText);
+
+
+            /* -------------------------
+               Video
+            ------------------------- */
+
+            const wrapper =
+              document.createElement("div");
+
+            wrapper.className =
+              "results-video-wrapper";
+
+
+            const video =
+              document.createElement("video");
+
+            video.src =
+              method.path(sceneCase.base);
+
+            video.autoplay = true;
+            video.loop = true;
+            video.muted = true;
+            video.playsInline = true;
+            video.controls = true;
+            video.preload = "metadata";
+
+
+            wrapper.appendChild(video);
+
+            item.appendChild(label);
+            item.appendChild(wrapper);
+
+            grid.appendChild(item);
+
+          });
+
+
+          caseElement.appendChild(grid);
+          group.appendChild(caseElement);
+
+        });
+
+
+        /* Observations */
+        if (scene.observations && scene.observations.length) {
+          const observations =
+            document.createElement("div");
+
+          observations.className =
+            "results-observations";
+
+          const observationsTitle =
+            document.createElement("div");
+
+          observationsTitle.className =
+            "results-observations-title";
+
+          observationsTitle.textContent =
+            "Observations";
+
+          const observationsList =
+            document.createElement("ul");
+
+          scene.observations.forEach(text => {
+            const observationItem =
+              document.createElement("li");
+
+            observationItem.textContent = text;
+            observationsList.appendChild(observationItem);
+          });
+
+          observations.appendChild(observationsTitle);
+          observations.appendChild(observationsList);
+          group.appendChild(observations);
+        }
+
+
+        root.appendChild(group);
+
+      });
+
+    })();
+  </script>
+
+</section>
+<!-- END SELECTED VIDEO RESULTS -->
+
+
+
+
+<!-- BibTeX -->
+<section class="bibtex-section">
+  <h2>Citation</h2>
+
+  <div class="bibtex-wrapper">
+    <button
+      class="copy-bibtex-btn"
+      onclick="copyBibtex(this)"
+      aria-label="Copy BibTeX"
+      title="Copy BibTeX"
+    >
+      <!-- Copy icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="9" y="9" width="10" height="10" rx="1.5"></rect>
+        <path d="M15 9V6.5A1.5 1.5 0 0 0 13.5 5h-8A1.5 1.5 0 0 0 4 6.5v8A1.5 1.5 0 0 0 5.5 16H9"></path>
+      </svg>
+    </button>
+
+    <pre class="bibtex"><code>@article{Qi2026VideoReveal,
+  title   = {A Study of the Design Space of Motion and Disocclusion Control in Video Generation},
+  author  = {Qi, Anran and Li, Changjian and Bousseau, Adrien and Mitra, Niloy J.},
+  journal = {Computer Graphics Forum},
+  year    = {2026},
+  note    = {Pacific Graphics 2026}
+}</code></pre>
+  </div>
+</section>
+
+<style>
+.bibtex-wrapper {
+  position: relative;
+}
+
+.copy-bibtex-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  color: #666;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.copy-bibtex-btn:hover {
+  background: #f7f7f6;
+  color: #9f2042;
+  border-color: #ccc;
+}
+
+.copy-bibtex-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.copy-bibtex-btn.copied {
+  color: #9f2042;
+}
+</style>
+
+<script>
+function copyBibtex(button) {
+  const code = button
+    .closest(".bibtex-wrapper")
+    .querySelector("code")
+    .innerText;
+
+  navigator.clipboard.writeText(code).then(() => {
+    button.classList.add("copied");
+    button.title = "Copied!";
+
+    setTimeout(() => {
+      button.classList.remove("copied");
+      button.title = "Copy BibTeX";
+    }, 1500);
+  });
+}
+</script>
+
 
     <!-- References Section -->
       <section class="references-section">
         <h2>References</h2>
         <ol class="references-list">
           <li id="ref1">
-            <span class="ref-authors">Gu, Zekai, Rui Yan, Jiahao Lu, Peng Li, Zhiyang Dou, Chenyang Si, Zhen Dong et al. </span>,
+            <span class="ref-authors">[GYL∗25] Gu, Zekai, Rui Yan, Jiahao Lu, Peng Li, Zhiyang Dou, Chenyang Si, Zhen Dong et al. </span>,
             <span class="ref-title">"Diffusion as shader: 3d-aware video diffusion for versatile video generation control."</span>,
             <span class="ref-venue">Siggraph 2025</span>.
           </li>
-          <li id="ref2">
-            <span class="ref-authors">Google DeepMind. </span>,
-            <span class="ref-title">"Veo: Video generation with moe-driven diffusion and audio generation."</span>,
-            <span class="ref-venue">2024</span>.
-          </li>
+         
 
-          <li id="ref3">
-            <span class="ref-authors">Wu, Weijia, Zhuang Li, Yuchao Gu, Rui Zhao, Yefei He, David Junhao Zhang, Mike Zheng Shou, Yan Li, Tingting Gao, and Di Zhang </span>,
-            <span class="ref-title">"Draganything: Motion control for anything using entity representation."</span>,
-            <span class="ref-venue">ECCV 2024</span>.
-          </li>
+          
           <li id="ref4">
-            <span class="ref-authors">Li, Ruining, Chuanxia Zheng, Christian Rupprecht, and Andrea Vedaldi </span>,
-            <span class="ref-title">"Puppet-master: Scaling interactive video generation as a motion prior for part-level dynamics."</span>,
-            <span class="ref-venue">ICCV 2025</span>.
-          </li>
+              <span class="ref-authors">[Zhe25] Zheng, F.</span>,
+              <span class="ref-title">
+                "CogVideoX-Interpolation."
+              </span>,
+              <span class="ref-venue">
+                GitHub repository, 2025. Accessed June 1, 2026.
+              </span>
+              <a href="https://github.com/feizc/CogvideX-Interpolation"
+                target="_blank"
+                rel="noopener">
+                Project Repository
+              </a>.
+            </li>
 
           <!-- Add more references as needed -->
         </ol>
       </section>
 
-    <!-- Footer (with Copyright & License Section) -->
-    <footer class="page-footer">
-    <p>
-    <blockquote style="background:#f8f9fa;border-left:4px solid #ffffff;padding:1em 1.5em;border-radius:6px;font-size:1.05em;">
-    Website template and code adapted from <a href="https://github.com/time-to-move/time-to-move.github.io">Time-to-Move Project Page</a> by Assaf Singer et al.
-    </blockquote>
-    </footer>
     
   </div>
 </body>
 </html>
-
-<!-- Copyright & License Section
-<section class="copyright-section">
-  <h2>Copyright & License</h2>
-  <p>
-    The website code and design are © 2025 Assaf Singer and contributors. You are welcome to use, adapt, and share this project page for your own research or academic work. <br>
-    <strong>If you use or adapt this website, please include the following acknowledgment:</strong>
-  </p>
-  <blockquote style="background:#f8f9fa;border-left:4px solid #667eea;padding:1em 1.5em;border-radius:6px;font-size:1.05em;">
-    Website template and code adapted from <a href="https://github.com/time-to-move/time-to-move.github.io">Time-to-Move Project Page</a> by Assaf Singer et al.
-  </blockquote>
-  <p>
-    For questions or collaboration, contact <a href="mailto:assafsin0@gmail.com">assafsin0@gmail.com</a>.<br>
-    <strong>License:</strong> MIT License (see repository for details)
-  </p>
-  <footer class="page-footer">
-    <p>© 2025 - Time-to-Move Project Page</p>
-    <p>
-      This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br>
-      You are free to borrow the <a href="https://github.com/time-to-move/time-to-move.github.io">source code</a> of this website. We ask that you link back to this page in the footer or acknowledgments section of your project.<br>
-      <!-- Please remember to remove any analytics code or scripts you do not want on your website.<br> -->
-      <!-- For questions or collaboration, contact <a href="mailto:assafsin0@gmail.com">assafsin0@gmail.com</a>. -->
-    <!-- </p>
-    <p><a href="supplementary.html">View Supplementary Materials</a></p>
-  </footer> -->
