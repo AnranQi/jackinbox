@@ -4,18 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noarchive">
-  <title>A Study of the Design Space of<br> Motion and Disocclusion Control in Video Generation</title>
+  <title>VideoReveal · Motion and Disocclusion Control</title>
     <link rel="icon" type="image/png" href="assets/icon.png">
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+  <a class="skip-link" href="#overview">Skip to content</a>
+  <nav class="site-nav" aria-label="Sections"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">V</span> VideoReveal</a><div><a href="#benchmark">Benchmark</a><a href="#modeling">Modeling</a><a href="#video-results">Results</a><a href="#citation">Citation</a></div></nav>
   <div class="page-container">
     
     <!-- Paper Header -->
-    <header class="paper-header">
+    <header class="paper-header" id="top">
       <div class="venue-line">Pacific Graphics 2026 · Computer Graphics Forum</div>
-      <h1 class="paper-title">A Study of the Design Space of<br> Motion and Disocclusion Control in Video Generation</span></h1>
+      <h1 class="paper-title"><span class="title-prefix">A Study of the Design Space of</span>Motion and Disocclusion Control in Video Generation</h1><p class="hero-summary">What moves. What appears. How we control both.</p>
 
       <div class="authors">
         <a href="https://anranqi.github.io/">Anran Qi<sup>1</sup></a>
@@ -34,13 +36,13 @@
       <nav class="paper-links" aria-label="Paper resources">
         <a href="./assets/paper_compress.pdf" class="paper-btn" target="_blank" rel="noopener">Paper</a>
         <a href="https://arxiv.org/abs/2512.13392" class="paper-btn" target="_blank" rel="noopener">arXiv</a>
-        <a href="https://anranqi.github.io/VoronoiScissors/" class="paper-btn" target="_blank" rel="noopener">Code <span class="muted">(Soon)</span></a>
+        <span class="paper-btn unavailable" aria-disabled="true">Code · Coming soon</span>
         <a href="./assets/sup_compress.pdf" class="paper-btn" target="_blank" rel="noopener">Supplementary</a>
       </nav>
     </header>
 
  <!-- Teaser -->
-<section class="teaser-section">
+<main id="overview"><section class="teaser-section" aria-label="Research overview">
 
   <!-- Teaser Image -->
   <div class="teaser-image-container">
@@ -52,7 +54,7 @@
   </div>
 
   <!-- Description -->
-<div class="method-description" style="line-height:1.28;">
+<div class="method-description">
     <p>
       Every movement is a revelation. Like a Jack-in-the-Box slowly turning
       its crank, anticipation builds around the hidden spaces inside the box
@@ -68,7 +70,7 @@
 
     <!-- Teaser Video -->
   <div class="teaser-video-container">
-    <video class="teaser-video" autoplay loop muted playsinline controls>
+    <video class="teaser-video" loop muted playsinline controls preload="metadata">
       <source src="assets/teaser.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -93,16 +95,16 @@
 
 
       <!-- Method Overview -->
-    <section class="method-section">
+    <section class="method-section" id="benchmark">
       <div class="section-kicker">01 · Benchmark</div>
       <h2>VideoReveal Benchmark</h2>
 
       <p class="section-lead">
-        To systematically studying motion and disocclusion control in image-to-video generation, We introduce <strong>VideoReveal</strong>. A benchmark contains 32 modeled scenes and 5 captured scenes spanning rigid/deformable motion and static/dynamic disoccluded content. Each sample provides the rendered sequence, tracking guidance, disocclusion masks, and associated prompts.
+        To systematically study motion and disocclusion control in image-to-video generation, we introduce <strong>VideoReveal</strong>. The benchmark contains 32 modeled scenes and 5 captured scenes spanning rigid/deformable motion and static/dynamic disoccluded content. Each sample provides the rendered sequence, tracking guidance, disocclusion masks, and associated prompts.
       </p>
       
 <div class="teaser-video-container">
-    <video class="teaser-video" autoplay loop muted playsinline controls>
+    <video class="teaser-video" loop muted playsinline controls preload="metadata">
       <source src="assets/dataset_example_compressed.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -114,7 +116,15 @@
 
 
 
- <section class="Evaluation">
+ <section class="modeling-section" id="modeling">
+  <div class="modeling-intro"><div class="section-kicker">Behind the benchmark</div><h2>Building scenes<br>in Blender.</h2><p>Take a closer look at the modeling workflow behind the synthetic scenes.</p><a class="text-link" href="assets/modeling_blender.mp4" download>Download the modeling video <span aria-hidden="true">↗</span></a></div>
+  <figure class="modeling-player"><video controls playsinline preload="metadata" aria-label="Blender scene modeling demonstration"><source src="assets/modeling_blender.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/modeling_blender.mp4">Download the video</a>.</video><figcaption>Scene modeling in Blender</figcaption></figure>
+</section>
+<section class="modeling-section" id="annotation">
+  <div class="modeling-intro"><div class="section-kicker">Behind the benchmark</div><h2>Annotating<br>the scenes.</h2><p>Explore the annotation workflow in this video demonstration.</p><a class="text-link" href="assets/annotation_compress.mp4" download>Download the annotation video <span aria-hidden="true">↗</span></a></div>
+  <figure class="modeling-player"><video controls playsinline preload="metadata" aria-label="Scene annotation demonstration"><source src="assets/annotation_compress.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/annotation_compress.mp4">Download the video</a>.</video><figcaption>Scene annotation workflow</figcaption></figure>
+</section>
+<section class="Evaluation" id="design-space">
       <div class="section-kicker">02 · Design Space</div>
       <h2>Evaluation Setup</h2>
 <p class="section-lead">
@@ -137,7 +147,7 @@
 
      
 
-      <div class="method-description" style="line-height:1.28;margin:0;">
+      <div class="method-description">
         <p>
             
         </p>
@@ -152,241 +162,15 @@
 
 <section id="video-results">
   <div class="section-kicker">03 · Video Results</div>
-  <style>
-    #video-results {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 60px 24px;
-      font-family: "Linux Biolinum", Georgia, serif;
-      color: #111;
-      background: transparent;
-    }
-
-    #video-results h2 {
-      font-size: 2rem;
-      margin: 0 0 12px;
-      text-align: center;
-    }
-
-    #video-results .results-description {
-      color: #666;
-      text-align: center;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-
-    /* =========================
-       Scene groups
-    ========================= */
-
-    #video-results .scene-group {
-      margin-bottom: 64px;
-    }
-
-    #video-results .scene-group-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 30px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-      background: transparent;
-    }
-
-    #video-results .result-case {
-      margin-bottom: 50px;
-    }
-
-    #video-results .result-case-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      background: transparent;
-    }
-
-
-    /* =========================
-       Video grid
-    ========================= */
-
-    #video-results .results-video-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px 12px;
-    }
-
-    #video-results .results-video-item {
-      min-width: 0;
-      background: transparent;
-    }
-
-
-    /* =========================
-       Method label
-
-       IMPORTANT:
-       no background color here
-    ========================= */
-
-    #video-results .results-method-label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #333;
-
-      margin: 0 0 7px 0;
-      padding: 0;
-
-      text-align: center;
-
-      background: transparent !important;
-      border: none !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
-    }
-
-
-    /* Tiny colored square ONLY */
-    #video-results .results-method-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 2px;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-
-    /* =========================
-       Method colors
-    ========================= */
-
-    #video-results .method-color-gt {
-      background-color: #ff9f43 !important;
-    }
-
-    #video-results .method-color-tracking {
-      background-color: #8108c7 !important;
-    }
-
-    #video-results .method-color-disocclusion {
-      background-color: #6aff72 !important;
-    }
-
-    #video-results .method-color-cogvideox {
-      background-color: #ff6b9d !important;
-    }
-
-    #video-results .method-color-cogx-interp {
-      background-color: #48dbfb !important;
-    }
-
-    #video-results .method-color-das {
-      background-color: #ff6a6a !important;
-    }
-
-    #video-results .method-color-das-interp {
-      background-color: #7c6aff !important;
-    }
-
-    #video-results .method-color-pixelcp {
-      background-color: #1dd1a1 !important;
-    }
-
-
-    /* =========================
-       Video
-    ========================= */
-
-    #video-results .results-video-wrapper {
-      width: 100%;
-      background: transparent;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      overflow: hidden;
-      line-height: 0;
-    }
-
-    #video-results .results-video-wrapper video {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0;
-      padding: 0;
-      border: none;
-      background: transparent;
-    }
-
-
-
-    /* =========================
-       Observations
-    ========================= */
-
-    #video-results .results-observations {
-      /* Change the observation colors here */
-      --observation-background: #f7edf0;
-      --observation-text: #444;
-      --observation-title: #9f2042;
-      --observation-border: #9f2042;
-
-      margin: 28px 0 0 0;
-      padding: 20px 24px 18px;
-      background: var(--observation-background);
-      color: var(--observation-text);
-      border-left: 4px solid var(--observation-border);
-      border-radius: 6px;
-    }
-
-    #video-results .results-observations-title {
-      margin: 0 0 10px 0;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--observation-title);
-    }
-
-    #video-results .results-observations ul {
-      margin: 0;
-      padding-left: 1.25rem;
-    }
-
-    #video-results .results-observations li {
-      margin: 7px 0;
-      line-height: 1.55;
-      color: var(--observation-text);
-    }
-
-
-    /* =========================
-       Responsive
-    ========================= */
-
-    @media (max-width: 1000px) {
-      #video-results .results-video-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 600px) {
-      #video-results {
-        padding: 40px 16px;
-      }
-
-      #video-results .results-video-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-  </style>
+  
 
  
 
-  <h2>Video Results on Modeled and Captured Scenes.</h2>
+  <h2>Motion meets revelation.</h2>
 
 
 
+  <p class="results-description">Explore the same scene across guidance signals and five control methods. Use the player controls to inspect each result.</p><p class="results-resource"><a class="paper-btn" href="https://littleyuer.github.io/jack_in_the_box.github.io/" target="_blank" rel="noopener noreferrer">Full dataset &amp; results <span aria-hidden="true">↗</span></a></p>
   <div id="selected-video-results"></div>
 
 
@@ -654,6 +438,7 @@
             video.playsInline = true;
             video.controls = true;
             video.preload = "metadata";
+            video.setAttribute("aria-label", `${sceneCase.name}: ${method.label}`);
 
 
             wrapper.appendChild(video);
@@ -720,7 +505,7 @@
 
 
 <!-- BibTeX -->
-<section class="bibtex-section">
+<section class="bibtex-section" id="citation">
   <h2>Citation</h2>
 
   <div class="bibtex-wrapper">
@@ -747,52 +532,7 @@
   </div>
 </section>
 
-<style>
-.bibtex-wrapper {
-  position: relative;
-}
 
-.copy-bibtex-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 34px;
-  height: 34px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 7px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background: #fff;
-  color: #666;
-
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.copy-bibtex-btn:hover {
-  background: #f7f7f6;
-  color: #9f2042;
-  border-color: #ccc;
-}
-
-.copy-bibtex-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.copy-bibtex-btn.copied {
-  color: #9f2042;
-}
-</style>
 
 <script>
 function copyBibtex(button) {
@@ -809,6 +549,12 @@ function copyBibtex(button) {
       button.classList.remove("copied");
       button.title = "Copy BibTeX";
     }, 1500);
+  }).catch(() => {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(button.closest(".bibtex-wrapper").querySelector("code"));
+    selection.removeAllRanges(); selection.addRange(range);
+    button.title = "Select and copy the highlighted citation";
   });
 }
 </script>
@@ -846,6 +592,6 @@ function copyBibtex(button) {
       </section>
 
     
-  </div>
+  </main><footer><a class="brand" href="#top">VideoReveal</a><span>Motion &amp; disocclusion in video generation</span><a href="https://arxiv.org/abs/2512.13392">Read the paper ↗</a></footer></div>
 </body>
 </html>
